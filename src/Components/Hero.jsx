@@ -24,7 +24,7 @@ const Hero = () => {
     setIsSearch(true);
     setSearchClicked(true);
 
-    // Reset animation state after a short delay
+    
     setTimeout(() => setSearchClicked(false), 1000);
 
     console.log({ title, location });
@@ -79,13 +79,16 @@ const Hero = () => {
         <div className="w-full max-w-5xl mx-auto text-center border border-gray-200 shadow-2xl rounded-xl p-6 mb-10 transition-all hover:shadow-3xl">
           <p className="text-gray-700 text-base sm:text-lg font-medium mb-6">Trusted By:</p>
           <div className="flex flex-wrap justify-center gap-6">
-            <img src={microsoft} alt="Microsoft" className="h-8" />
-            <img src={adobe} alt="Adobe" className="h-8" />
-            <img src={walmart} alt="Walmart" className="h-8" />
-            <img src={accenture} alt="Accenture" className="h-8" />
-            <img src={samsung} alt="Samsung" className="h-8" />
-            <img src={amazon} alt="Amazon" className="h-8" />
-          </div>
+  {[microsoft, adobe, walmart, accenture, samsung, amazon].map((logo, i) => (
+    <img
+      key={i}
+      src={logo}
+      alt="Company Logo"
+      className="h-8 transition-transform duration-300 transform hover:scale-110 hover:opacity-80"
+    />
+  ))}
+</div>
+
         </div>
       </div>
     </>
